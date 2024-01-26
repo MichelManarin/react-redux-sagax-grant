@@ -54,6 +54,7 @@ export default function AuthenticationPage() {
                 <img
                   src="https://platform.grantadvance.com/static/media/ga-logo-sm.e629bbbe.png"
                   alt=""
+                  style={{ maxWidth: '100%', height: 'auto' }}
                 />
               </Grid>
               <Grid
