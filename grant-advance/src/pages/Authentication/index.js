@@ -44,96 +44,94 @@ export default function AuthenticationPage() {
         direction="column"
       >
         <Grid>
-          <Paper elevation={0} variant="elevation">
-            <Box className="box form-login ">
-              <Grid
-                alignItems="center"
-                justifyContent="center"
-                style={{ display: "flex" }}
+          <Box className="box form-login ">
+            <Grid
+              alignItems="center"
+              justifyContent="center"
+              style={{ display: "flex" }}
+            >
+              <img
+                src="https://platform.grantadvance.com/static/media/ga-logo-sm.e629bbbe.png"
+                alt=""
+                style={{ maxWidth: "100%", height: "auto" }}
+              />
+            </Grid>
+            <Grid
+              alignItems="center"
+              justifyContent="center"
+              style={{ display: "flex" }}
+              marginTop={4}
+            >
+              <Typography
+                variant="h6"
+                gutterBottom
+                style={{
+                  fontWeight: 700,
+                  lineHeight: 1.2,
+                  color: "rgb(0, 150, 136)",
+                  fontSize: "1.5rem",
+                }}
               >
-                <img
-                  src="https://platform.grantadvance.com/static/media/ga-logo-sm.e629bbbe.png"
-                  alt=""
-                  style={{ maxWidth: '100%', height: 'auto' }}
+                <b>Hi, Welcome back</b>
+              </Typography>
+            </Grid>
+            <Grid item xs={12} margin={2}>
+              <Form onSubmit={handleSubmit}>
+                <TextField
+                  size="small"
+                  autoComplete={"off"}
+                  variant="outlined"
+                  margin="normal"
+                  fullWidth
+                  id="fieldLogin"
+                  label="Login"
+                  name="login"
+                  value={form.login}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      login: e.target.value,
+                    })
+                  }
                 />
-              </Grid>
-              <Grid
-                alignItems="center"
-                justifyContent="center"
-                style={{ display: "flex" }}
-                marginTop={4}
-              >
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  style={{
-                    fontWeight: 700,
-                    lineHeight: 1.2,
-                    color: "rgb(0, 150, 136)",
-                    fontSize: "1.5rem",
-                  }}
+                <TextField
+                  size="small"
+                  autoComplete={"off"}
+                  variant="outlined"
+                  margin="normal"
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  value={form.password}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      password: e.target.value,
+                    })
+                  }
+                />
+                {error && <p style={styleError}>{error}</p>}
+                <Button
+                  size="large"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  style={{ marginTop: 16 }}
+                  onClick={handleSubmit}
                 >
-                  <b>Hi, Welcome back</b>
-                </Typography>
-              </Grid>
-              <Grid item xs={12} margin={2}>
-                <Form onSubmit={handleSubmit}>
-                  <TextField
-                    size="small"
-                    autoComplete={"off"}
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    id="fieldLogin"
-                    label="Login"
-                    name="login"
-                    value={form.login}
-                    onChange={(e) =>
-                      setForm({
-                        ...form,
-                        login: e.target.value,
-                      })
-                    }
-                  />
-                  <TextField
-                    size="small"
-                    autoComplete={"off"}
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    value={form.password}
-                    onChange={(e) =>
-                      setForm({
-                        ...form,
-                        password: e.target.value,
-                      })
-                    }
-                  />
-                  {error && <p style={styleError}>{error}</p>}
-                  <Button
-                    size="large"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    style={{ marginTop: 16 }}
-                    onClick={handleSubmit}
-                  >
-                    Sign In
-                  </Button>
-                </Form>
-              </Grid>
-            </Box>
-          </Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Divider />
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="subtitle2">GrantAdvance Test</Typography>
+                  Sign In
+                </Button>
+              </Form>
+            </Grid>
+            <Grid item xs={12} marginTop={2}>
+              <Divider />
+            </Grid>
+            <Grid item xs={12} marginTop={2}>
+              <Typography variant="subtitle2">GrantAdvance Test</Typography>
+            </Grid>
+          </Box>
         </Grid>
       </Grid>
     </div>

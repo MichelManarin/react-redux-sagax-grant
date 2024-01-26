@@ -57,10 +57,10 @@ export default function ProductsPage() {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff" }}>Id</TableCell>
-                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff" }} align="right">Product</TableCell>
-                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff" }} align="right">Price</TableCell>
-                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff" }} align="right">Creation</TableCell>
+                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff", fontWeight: 700 }}>Id</TableCell>
+                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff", fontWeight: 700  }} align="right">Product</TableCell>
+                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff", fontWeight: 700  }} align="right">Price</TableCell>
+                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff", fontWeight: 700  }} align="right">Creation</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
