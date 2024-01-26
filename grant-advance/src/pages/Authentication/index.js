@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { TextField } from "@mui/material";
-import { Grid, Paper, Box, Typography, Button, Divider } from "@mui/material";
+import { Grid, Box, Typography, Button, Divider } from "@mui/material";
 import { loginRequest } from "../../store/actions";
 import { Form } from "@unform/web";
 
@@ -21,22 +22,19 @@ export default function AuthenticationPage() {
   };
 
   const [form, setForm] = useState(initalData);
+  const [allowRedirect, setAllowRedirect] = useState(false);
 
   useEffect(() => {
     if (!error && token && expirationDate) {
       const currentDate = new Date();
       const redirect = new Date(expirationDate) > currentDate;
-
-      if (redirect) {
-        const baseUrl = window.location.origin;
-        const url = baseUrl + "/products";
-        window.location.href = url;
-      }
+      setAllowRedirect(redirect);
     }
   }, [error, token, expirationDate]);
 
   return (
     <div id="login">
+      {allowRedirect && <Navigate to="/products" />}
       <Grid
         className="container-login"
         container

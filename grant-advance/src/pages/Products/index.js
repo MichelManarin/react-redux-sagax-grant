@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container } from "@mui/material";
 import { productsRequest } from "../../store/actions";
 
+import Logout from "../../components/Logout";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
+import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
+import TableHead from "@mui/material/TableHead";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -72,7 +73,9 @@ export default function ProductsPage() {
                     Id
                   </TableCell>
                   <TableCell style={styleRow}>Product</TableCell>
-                  <TableCell align="right" style={styleRow}>Price</TableCell>
+                  <TableCell align="right" style={styleRow}>
+                    Price
+                  </TableCell>
                   <TableCell style={styleRow}>Creation</TableCell>
                 </TableRow>
               </TableHead>
@@ -93,6 +96,7 @@ export default function ProductsPage() {
               </TableBody>
             </Table>
           </TableContainer>
+          <Logout />
         </ThemeProvider>
       )}
     </Container>
