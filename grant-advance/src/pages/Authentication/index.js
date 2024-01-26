@@ -46,12 +46,36 @@ export default function AuthenticationPage() {
         <Grid>
           <Paper elevation={0} variant="elevation">
             <Box className="box form-login ">
-              <Grid item xs={12}>
-                <Typography variant="h6" gutterBottom>
-                  🚀 Welcome back
+              <Grid
+                alignItems="center"
+                justifyContent="center"
+                style={{ display: "flex" }}
+              >
+                <img
+                  src="https://platform.grantadvance.com/static/media/ga-logo-sm.e629bbbe.png"
+                  alt=""
+                />
+              </Grid>
+              <Grid
+                alignItems="center"
+                justifyContent="center"
+                style={{ display: "flex" }}
+                marginTop={4}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  style={{
+                    fontWeight: 700,
+                    lineHeight: 1.2,
+                    color: "rgb(0, 150, 136)",
+                    fontSize: "1.5rem",
+                  }}
+                >
+                  <b>Hi, Welcome back</b>
                 </Typography>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} margin={2}>
                 <Form onSubmit={handleSubmit}>
                   <TextField
                     size="small"
@@ -59,7 +83,7 @@ export default function AuthenticationPage() {
                     variant="outlined"
                     margin="normal"
                     fullWidth
-                    id="login"
+                    id="fieldLogin"
                     label="Login"
                     name="login"
                     value={form.login}
