@@ -25,6 +25,12 @@ const theme = createTheme({
   },
 });
 
+const styleRow = {
+  backgroundColor: theme.palette.primary.main,
+  color: "#fff",
+  fontWeight: 700,
+};
+
 export default function ProductsPage() {
   const dispatch = useDispatch();
 
@@ -42,14 +48,13 @@ export default function ProductsPage() {
       day: "2-digit",
       hour: "2-digit",
       minute: "2-digit",
-      second: "2-digit",
     };
 
     return date.toLocaleString("en-US", options);
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{ marginTop: 2 }}>
       {!!loading && <CircularProgress color="primary" size={20} />}
       {!loading && (
         <ThemeProvider theme={theme}>
@@ -57,10 +62,18 @@ export default function ProductsPage() {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff", fontWeight: 700 }}>Id</TableCell>
-                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff", fontWeight: 700  }} align="right">Product</TableCell>
-                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff", fontWeight: 700  }} align="right">Price</TableCell>
-                  <TableCell style={{ backgroundColor: theme.palette.primary.main, color: "#fff", fontWeight: 700  }} align="right">Creation</TableCell>
+                  <TableCell
+                    style={{
+                      backgroundColor: theme.palette.primary.main,
+                      color: "#fff",
+                      fontWeight: 700,
+                    }}
+                  >
+                    Id
+                  </TableCell>
+                  <TableCell style={styleRow}>Product</TableCell>
+                  <TableCell align="right" style={styleRow}>Price</TableCell>
+                  <TableCell style={styleRow}>Creation</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -72,11 +85,9 @@ export default function ProductsPage() {
                     <TableCell component="th" scope="row">
                       {row.id}
                     </TableCell>
-                    <TableCell align="right">{row.productName}</TableCell>
+                    <TableCell>{row.productName}</TableCell>
                     <TableCell align="right">{row.price}</TableCell>
-                    <TableCell align="right">
-                      {formatIso(row.creationDate)}
-                    </TableCell>
+                    <TableCell>{formatIso(row.creationDate)}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
